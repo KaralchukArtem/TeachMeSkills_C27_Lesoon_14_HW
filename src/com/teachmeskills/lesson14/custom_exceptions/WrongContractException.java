@@ -1,8 +1,6 @@
 package com.teachmeskills.lesson14.custom_exceptions;
 
-public class WrongContractException {
-
-    //...TODO 2
-
-
+public class WrongContractException extends Exception {
+    public WrongContractException(){}
+    public WrongContractException(String message){super(message);}
 }

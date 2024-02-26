@@ -1,6 +1,9 @@
 package com.teachmeskills.lesson14.consts;
 
-public class FormatConsts {
+public interface FormatConsts {
 
-    //...TODO 1
+    int DOCUMENT_LENGTH = 15;
+    String DOCUMENT_SUBSEQUENCE = "docnum";
+    String CONTRACT_SUBSEQUENCE = "сontract";
+
 }
