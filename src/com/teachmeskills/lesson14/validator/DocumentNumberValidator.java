@@ -5,7 +5,6 @@ import com.teachmeskills.lesson14.consts.PathConsts;
 import com.teachmeskills.lesson14.custom_exceptions.WrongContractException;
 import com.teachmeskills.lesson14.custom_exceptions.WrongDocumentNumberException;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -30,7 +29,7 @@ public class DocumentNumberValidator {
     }
 
     private static boolean formatDocumentCheck(String line) throws WrongDocumentNumberException {
-        if(line.contains(FormatConsts.DOCUMENT_SUBSEQUENCE) & line.length() <= FormatConsts.DOCUMENT_LENGTH){
+        if(line.matches(FormatConsts.DOCUMENT_REGEX)){
             writerValidDocumentFile(line,PathConsts.VALID_PATH_DOCUMENT);
             return true;
         }else {
@@ -42,7 +41,7 @@ public class DocumentNumberValidator {
     }
 
     private static boolean formatContractCheck(String line) throws WrongContractException {
-        if (line.contains(FormatConsts.CONTRACT_SUBSEQUENCE) & line.length() <= FormatConsts.DOCUMENT_LENGTH) {
+        if (line.matches(FormatConsts.CONTRACT_REGEX)) {
             writerValidContractFile(line,PathConsts.VALID_PATH_CONTRACT);
             return true;
         }else {

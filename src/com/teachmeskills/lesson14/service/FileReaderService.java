@@ -8,7 +8,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
+import static com.teachmeskills.lesson14.service.FileErrorWriteService.writerErrorLogFile;
 import static com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck;
 
 public class FileReaderService {
@@ -21,8 +25,12 @@ public class FileReaderService {
                 fileTypeDocumentCheck(line);
             }
         } catch (FileNotFoundException e) {
+            Calendar calendar = new GregorianCalendar();
+            Date date = calendar.getTime();
+            writerErrorLogFile(e.getStackTrace() + "\n" + date,PathConsts.PATH_ERROR_LOG);
             System.out.println("Путь указанный к файлу не найден");
         } catch (IOException e) {
+
             System.out.println("Случилось что-то ещё, обратитесь пожалуйста в тех.поддержку");
         }
     }
