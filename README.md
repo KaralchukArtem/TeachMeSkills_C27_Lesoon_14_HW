@@ -1,4 +1,4 @@
-TeachMeSkills_C27_Lesoon_14_HW
+# TeachMeSkills_C27_Lesoon_14_HW
 
 The application allows the user to parse .txt files with document numbers. 
 The application parses each line in the document and checks the line value.
