@@ -1,0 +1,38 @@
+[ERROR] -> 2024-03-06 02:00:43 ->  Document не валид, длинная больше 15 символов
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.formatDocumentCheck(DocumentNumberValidator.java:36)
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck(DocumentNumberValidator.java:21)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:23)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)
+
+[ERROR] -> 2024-03-06 02:01:07 ->  Document не валид, длинная больше 15 символов 
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.formatDocumentCheck(DocumentNumberValidator.java:36)
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck(DocumentNumberValidator.java:21)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:23)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)
+
+[ERROR] -> 2024-03-06 02:03:58 -> Путь указанный к файлу не найден
+			java.base/java.io.FileInputStream.open0(Native Method)
+			java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+			java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+			java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+			java.base/java.io.FileReader.<init>(FileReader.java:60)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:17)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)
+
+[ERROR] -> 2024-03-06 02:07:20 ->  Document не валид, длинная больше 15 символов 
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.formatDocumentCheck(DocumentNumberValidator.java:31)
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck(DocumentNumberValidator.java:16)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:20)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)
+
+[ERROR] -> 2024-03-06 02:08:37 ->  CONTRACT не валид, длинная больше 15 символов 
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.formatContractCheck(DocumentNumberValidator.java:41)
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck(DocumentNumberValidator.java:18)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:20)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)
+
+[ERROR] -> 2024-03-06 02:09:23 ->  CONTRACT не валид, длинная больше 15 символов 
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.formatContractCheck(DocumentNumberValidator.java:42)
+			com.teachmeskills.lesson14.validator.DocumentNumberValidator.fileTypeDocumentCheck(DocumentNumberValidator.java:18)
+			com.teachmeskills.lesson14.service.FileReaderService.ReadFile(FileReaderService.java:20)
+			com.teachmeskills.lesson14.Run.main(Run.java:9)

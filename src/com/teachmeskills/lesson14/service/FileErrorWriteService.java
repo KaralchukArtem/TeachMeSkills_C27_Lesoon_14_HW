@@ -5,53 +5,37 @@ import com.teachmeskills.lesson14.consts.PathConsts;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FileErrorWriteService {
+    public static void writerErrorLogFile(Date date, String messageError, Exception exception) {
+        try (BufferedWriter writerError = new BufferedWriter(new FileWriter(PathConsts.PATH_ERROR_LOG, true))) {
 
-    public static void writerErrorLogFile(String a, String path) {
-        try (BufferedWriter writerError = new BufferedWriter(new FileWriter(path, true))) {
-            char[] strCharArray = a.toCharArray();
-            StringBuilder builder = new StringBuilder();
-            for (char c: strCharArray){
-                if (c == '[') {
-                    builder.append("\n");
-                }
-                if (c != ','){
-                    builder.append(c);
-                }else {
-                    builder.append("\n");
-                }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String dateFormat = simpleDateFormat.format(date);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("\n[ERROR] -> " + dateFormat + " -> " + messageError + "\n");
+
+            StackTraceElement[] stackTraceElements = exception.getStackTrace();
+            for (StackTraceElement element : stackTraceElements) {
+                stringBuilder.append("\t\t\t" + element.toString());
+                stringBuilder.append("\n");
             }
-            writerError.write(builder + "\n");
-            writerExecutionLogFile(builder.toString(), PathConsts.PATH_EXECUTION_LOG);
+
+            writerError.write(stringBuilder.toString());
+            writerExecutionLogFile(stringBuilder.toString());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Writer error");
         }
     }
 
-    public static void writerErrorLogFile(String line, String a, String path) {
-        try (BufferedWriter writerError = new BufferedWriter(new FileWriter(path, true))) {
-            writerError.write( a + " - " + line + "\n");
-            writerExecutionLogFile(line, a, PathConsts.PATH_EXECUTION_LOG);
+    private static void writerExecutionLogFile(String messageError) {
+        try (BufferedWriter writerExecution = new BufferedWriter(new FileWriter(PathConsts.PATH_EXECUTION_LOG, true))) {
+            writerExecution.write(messageError);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Writer error");
         }
     }
-
-    private static void writerExecutionLogFile(String a, String path) {
-        try (BufferedWriter writerExecution = new BufferedWriter(new FileWriter(path, true))) {
-            writerExecution.write(a + "\n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void writerExecutionLogFile(String line, String a, String path) {
-        try (BufferedWriter writerExecution = new BufferedWriter(new FileWriter(path, true))) {
-            writerExecution.write(a + " - " + line + "\n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }
